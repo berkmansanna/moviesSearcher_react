@@ -1,30 +1,54 @@
-import { Routes, Route, Link } from 'react-router-dom';
-// import { Home } from 'pages/Home';
-// import { Movies } from 'pages/Movies';
-// import { MovieDetails } from './MovieDetails';
-import { lazy, Suspense } from 'react';
+import { Route, Routes } from "react-router-dom"
+import { lazy} from 'react';
 
-const Home = lazy(() => import('../pages/Home'));
-const Movies = lazy(() => import('../pages/Movies'));
-const MovieDetails = lazy(() => import('./MovieDetails'));
+import { Layout } from "./Layout/Layout"
+
+const Home = lazy(() => import('../pages/Home/Home'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
+
 
 export const App = () => {
   return (
-    <div>
-      <header>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
-        </nav>
-      </header>
-      <Suspense fallback={null}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId/*" element={<MovieDetails />} />
-          <Route path="*" element={<div>NOT FOUND ROUTE</div>} />
-        </Routes>
-      </Suspense>
-    </div>
-  );
-};
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path='movies' element={<Movies />} />
+        <Route path="/movies/:movieId/*" element={<MovieDetails />} />
+        <Route path="*" element={<div>NOT FOUND ROUTE</div>} />
+      </Route>
+   </Routes>
+  )
+}
+
+
+
+// import { Routes, Route, NavLink } from 'react-router-dom';
+
+
+
+
+// export const App = () => {
+//   return (
+//     <Container>
+      // <Header>
+      //   <nav>
+      //     <StyledLink to="/">Home</StyledLink>
+      //     <StyledLink to="/movies">Movies</StyledLink>
+      //   </nav>
+      // </Header>
+//       <Suspense fallback={null}>
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/movies" element={<Movies />} />
+          // <Route path="/movies/:movieId/*" element={<MovieDetails />} />
+          // <Route path="*" element={<div>NOT FOUND ROUTE</div>} />
+//         </Routes>
+//       </Suspense>
+//     </Container>
+//   );
+// };
+
+// `
+
+

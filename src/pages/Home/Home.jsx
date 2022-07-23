@@ -1,6 +1,6 @@
 import { getPopularMovies } from 'API/moviesAPI';
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Main, Title, MovieList, MovieItem, StyledLink } from './Home.styled';
 
 const Home = () => {
   const [movies, setPopularMovies] = useState([]);
@@ -16,19 +16,19 @@ const Home = () => {
   }
 
   return (
-    <>
-      <h2>Trending today </h2>
-      <ul>
+    <Main>
+      <Title>Trending today </Title>
+      <MovieList>
         {movies.map(({ id, title }) => {
           return (
-            <li key={id}>
-              <NavLink to={`/movies/${id}`}>{title}</NavLink>
-            </li>
+            <MovieItem key={id}>
+              <StyledLink to={`/movies/${id}`}>{title}</StyledLink>
+            </MovieItem>
           );
         })}
-      </ul>
-    </>
+      </MovieList>
+    </Main>
   );
 };
 
-export default Home
+export default Home;
