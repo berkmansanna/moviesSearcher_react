@@ -18,7 +18,7 @@ const Movies = () => {
   useEffect(() => {
     const query = searchParams.get('query') ?? '';
     if (query) handleSearch(query);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSearch = value => {
     setSearchParams({ query: value });
