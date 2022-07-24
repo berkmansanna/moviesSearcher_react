@@ -7,8 +7,14 @@ export const Layout = () => {
     <Conteiner>
       <Header>
         <nav>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/movies">Movies</StyledLink>
+          <ul>
+            <li>
+              <StyledLink to="/">Home</StyledLink>
+            </li>
+            <li>
+              <StyledLink to="/movies">Movies</StyledLink>
+            </li>
+          </ul>
         </nav>
       </Header>
       <Suspense fallback={<div>Loading page...</div>}>

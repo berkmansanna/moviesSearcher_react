@@ -33,6 +33,7 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState(MOVIES_DATA);
   const location = useLocation();
 
+
   useEffect(() => {
     getMoviesById(movieId).then(setMovie).catch(`Error`);
   }, [movieId]);
@@ -44,7 +45,7 @@ const MovieDetails = () => {
   const { title, poster_path, vote_average, overview, genres } = movie;
   const movieGenres = genres.map(item => item.name).join(', ');
 
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = location?.state?.from ?? '/';
 
   return (
     <>
@@ -64,10 +65,10 @@ const MovieDetails = () => {
             <Genres>Genres: {movieGenres}</Genres>
             <DetailsNavList>
               <DetailsNavItems>
-                <DetailsNav to="cast">Cast</DetailsNav>
+                <DetailsNav to="cast" state={location.state}>Cast</DetailsNav>
               </DetailsNavItems>
               <DetailsNavItems>
-                <DetailsNav to="reviews">Reviews</DetailsNav>
+                <DetailsNav to="reviews" state={location.state}>Reviews</DetailsNav>
               </DetailsNavItems>
             </DetailsNavList>
           </DiscriptionMovie>
