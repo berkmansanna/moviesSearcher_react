@@ -1,21 +1,13 @@
+import AppBar from 'components/AppBar/AppBar';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Conteiner, Header, StyledLink } from './Layout.styled';
+import { Conteiner, Header } from './Layout.styled';
 
-export const Layout = () => {
+const Layout = () => {
   return (
     <Conteiner>
       <Header>
-        <nav>
-          <ul>
-            <li>
-              <StyledLink to="/">Home</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/movies">Movies</StyledLink>
-            </li>
-          </ul>
-        </nav>
+        <AppBar/>
       </Header>
       <Suspense fallback={<div>Loading page...</div>}>
         <Outlet />
@@ -23,3 +15,5 @@ export const Layout = () => {
     </Conteiner>
   );
 };
+
+export default Layout

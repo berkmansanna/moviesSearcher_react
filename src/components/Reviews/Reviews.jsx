@@ -28,15 +28,13 @@ const Reviews = ({ id }) => {
   return (
     <Section>
       {reviews.length > 0 ? (
-        <ReviewsList key={id}>
+        <ReviewsList>
           {reviews.map(({ author, id, content }) => {
             return (
-              <>
                 <ReviewsItem key={id}>
                   <AuthorName>Author: {author}</AuthorName>
                   <ContentReview>{content}</ContentReview>
                 </ReviewsItem>
-              </>
             );
           })}
         </ReviewsList>

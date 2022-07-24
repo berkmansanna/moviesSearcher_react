@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { lazy} from 'react';
 
-import { Layout } from "./Layout/Layout"
+import  Layout  from "./Layout/Layout"
 
 const Home = lazy(() => import('../pages/Home/Home'));
 const Movies = lazy(() => import('../pages/Movies/Movies'));
@@ -21,34 +21,5 @@ export const App = () => {
   )
 }
 
-
-
-// import { Routes, Route, NavLink } from 'react-router-dom';
-
-
-
-
-// export const App = () => {
-//   return (
-//     <Container>
-      // <Header>
-      //   <nav>
-      //     <StyledLink to="/">Home</StyledLink>
-      //     <StyledLink to="/movies">Movies</StyledLink>
-      //   </nav>
-      // </Header>
-//       <Suspense fallback={null}>
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/movies" element={<Movies />} />
-          // <Route path="/movies/:movieId/*" element={<MovieDetails />} />
-          // <Route path="*" element={<div>NOT FOUND ROUTE</div>} />
-//         </Routes>
-//       </Suspense>
-//     </Container>
-//   );
-// };
-
-// `
 
 

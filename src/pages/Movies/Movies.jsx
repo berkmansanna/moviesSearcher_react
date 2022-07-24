@@ -27,7 +27,6 @@ const Movies = () => {
       .catch(`Error`);
   };
 
-  console.log(location);
 
   return (
     <Section>
